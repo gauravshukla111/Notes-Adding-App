@@ -6,15 +6,15 @@ function Navbar({ setQuery }) {
   const { user, logout } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Debounce search input
+
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
     const debounceTimer = setTimeout(() => {
-      setQuery(value); // Trigger parent query update
+      setQuery(value);
     }, 300);
 
-    return () => clearTimeout(debounceTimer); // Clear timeout on component unmount or input change
+    return () => clearTimeout(debounceTimer); 
   };
 
   return (
